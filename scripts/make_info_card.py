@@ -28,12 +28,12 @@ BG = "#0d1117"
 BG2 = "#111722"
 TITLE_TEXT = "#7d8590"
 
-# Curated premium aesthetic flat colors - NO GRADIENTS
-COLOR_AI = "#a371f7"       # Electric Violet
-COLOR_BACKEND = "#388bfd"  # Cyber Cobalt Blue
-COLOR_CLOUD = "#3fb950"    # Emerald Mint
-COLOR_HARDWARE = "#f0883e" # Amber Flame
-COLOR_GIS = "#39c5cf"      # Bright Teal / Cyan
+# Curated Nord aesthetic flat colors
+COLOR_AI = "#B48EAD"       # Nord Purple / Magenta
+COLOR_BACKEND = "#81A1C1"  # Nord Frost Blue
+COLOR_CLOUD = "#A3BE8C"    # Nord Aurora Green
+COLOR_HARDWARE = "#D08770" # Nord Aurora Orange
+COLOR_GIS = "#88C0D0"      # Nord Frost Teal / Cyan
 
 svg_parts = []
 svg_parts.append(
@@ -223,10 +223,10 @@ svg_parts.append(f"""
 y_cursor += 44
 
 achievements = [
-    ("Finalist", "Nari Kavach 2026", "NAZAR Wi-Fi Cam Detection (IEEE WIE DU)", "#3fb950"),
-    ("Top 15", "Hack-4-Viksit Bharat", "Nyaya-Sahayak Legal RAG (SISL × Google Cloud)", "#388bfd"),
-    ("SIH 2026", "IGNISSENSE", "Satellite Thermal Anomaly Classifier (PS 26162)", "#a371f7"),
-    ("SIH 2025", "Team Encrypted", "Academic Doc Authenticity Validator (PS 25029)", "#39c5cf"),
+    ("Finalist", "Nari Kavach 2026", "NAZAR Wi-Fi Cam Detection (IEEE WIE DU)", "#A3BE8C"),
+    ("Top 15", "Hack-4-Viksit Bharat", "Nyaya-Sahayak Legal RAG (SISL × Google Cloud)", "#81A1C1"),
+    ("SIH 2026", "IGNISSENSE", "Satellite Thermal Anomaly Classifier (PS 26162)", "#B48EAD"),
+    ("SIH 2025", "Team Encrypted", "Academic Doc Authenticity Validator (PS 25029)", "#88C0D0"),
 ]
 
 for idx, (badge, title, desc, col) in enumerate(achievements):
