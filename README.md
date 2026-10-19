@@ -24,9 +24,9 @@
 </p>
 
 <p align="center">
-  <a href="https://linkedin.com/in/krishna-sharma-cse/"><img src="https://img.shields.io/badge/LinkedIn-Krishna_Sharma-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://www.linkedin.com/in/krishna-sharma-cse/"><img src="https://img.shields.io/badge/LinkedIn-Krishna_Sharma-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   &nbsp;
-  <a href="https://itsksfit.github.io"><img src="https://img.shields.io/badge/Portfolio-itsksfit.github.io-161b22?style=flat-square&logo=googlechrome&logoColor=39c5cf" alt="Portfolio" /></a>
+  <a href="https://www.krishna-sharma.dev/"><img src="https://img.shields.io/badge/Portfolio-krishna--sharma.dev-161b22?style=flat-square&logo=googlechrome&logoColor=39c5cf" alt="Portfolio" /></a>
   &nbsp;
   <a href="https://github.com/krishnasharma1493"><img src="https://img.shields.io/badge/GitHub-krishnasharma1493-238636?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
   &nbsp;
@@ -243,7 +243,7 @@ leadership_and_volunteering:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Krishna_Sharma-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krishna-sharma-cse/)
 &nbsp;&nbsp;
-[![Portfolio](https://img.shields.io/badge/Portfolio-itsksfit.github.io-161b22?style=for-the-badge&logo=googlechrome&logoColor=39c5cf)](https://itsksfit.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-krishna--sharma.dev-161b22?style=for-the-badge&logo=googlechrome&logoColor=39c5cf)](https://www.krishna-sharma.dev/)
 &nbsp;&nbsp;
 [![GitHub (Projects)](https://img.shields.io/badge/GitHub-krishnasharma1493-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/krishnasharma1493)
 &nbsp;&nbsp;
