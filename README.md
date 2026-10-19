@@ -54,6 +54,7 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
   <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
   <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black" alt="C" />
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white" alt="Swift" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
   <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL" />
@@ -75,8 +76,10 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
   <img src="https://img.shields.io/badge/NASA_FIRMS_GIS-E03A3E?style=for-the-badge&logo=nasa&logoColor=white" alt="NASA FIRMS" />
 </p>
 
-#### 🌐 Web, Backend & Distributed Services
+#### 🌐 Web, Mobile & Distributed Services
 <p align="left">
+  <img src="https://img.shields.io/badge/SwiftUI-007AFF?style=for-the-badge&logo=swift&logoColor=white" alt="SwiftUI" />
+  <img src="https://img.shields.io/badge/iOS_17+-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS 17+" />
   <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
@@ -95,6 +98,7 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
   <img src="https://img.shields.io/badge/AWS_S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white" alt="AWS S3" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/ESP32_IoT-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase" />
@@ -107,10 +111,11 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
 
 ### <code>krishna@github ~ $ ./featured-projects.sh --verbose</code>
 
-> Deep-dive architectural implementations spanning IoT hardware signal analysis, satellite GIS telemetry, multimodal legal AI, and browser security.
+> Deep-dive architectural implementations spanning native mobile systems, IoT hardware signal analysis, satellite GIS telemetry, multimodal legal AI, and browser security.
 
 ```
 📁 /projects/
+├── 📱 Presently            # Offline-First iOS Attendance Manager & Bunk Calculator (SwiftData + Live Activities)
 ├── 🔬 NAZAR               # Wi-Fi Camera Detection via Stroboscopic Light & RF Sniffing
 ├── 🛰️ IGNISSENSE          # Satellite Thermal Anomaly Classifier (NASA FIRMS + OSM)
 ├── ⚖️ Nyaya-Sahayak       # Legal First-Responder Platform Grounded in Indian Statutes
@@ -120,7 +125,23 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
 
 <br>
 
-#### 1. [NAZAR | Covert Wi-Fi Camera Detection Research](https://github.com/krishnasharma1493/NAZAR)
+#### 1. [Presently | Offline-First iOS Attendance & Academic Analytics Engine](https://github.com/krishnasharma1493/Presently)
+**Native iOS Application** · *Personal Productivity & Deterministic Simulation Engine*  
+`Swift 5.9+` `SwiftUI` `SwiftData` `ActivityKit (Live Activities)` `WidgetKit` `SQLite` `XcodeGen` `Python`
+
+- **The Problem:** University students navigate strict institutional attendance mandates (e.g. 75% minimums), unpredictable schedule cancellations, and difficult campus room discovery. Typical attendance apps require cloud logins, leak schedule telemetry, lack offline integrity, and offer no Dynamic Island or widget integration.
+- **The Solution:** A zero-telemetry, offline-first native iOS application built with SwiftUI and SwiftData that simulates attendance projections, surfaces real-time Dynamic Island and Lock Screen countdowns via ActivityKit, and includes precompiled offline campus room vacancy matrices.
+- **Architecture & Technical Highlights:**
+  - **Deterministic Calculation Engine:** Implements exact threshold algorithms to calculate *Safe Bunks* ($B = \lfloor \frac{P - T \cdot A}{T} \rfloor$) and *Required Recoveries* ($R = \lceil \frac{T \cdot A - P}{1 - T} \rceil$) to guarantee compliance with institutional minimums, supported by interactive "What-If" slider simulations.
+  - **Live Activities & Dynamic Island (`ActivityKit`):** Real-time countdowns for active lectures, upcoming room changes, and one-tap attendance marking directly from the Lock Screen.
+  - **Home & Lock Screen Widgets (`WidgetKit`):** Multi-size widgets (Small, Medium, Large) presenting daily timetables and subject-by-subject attendance health at a glance.
+  - **Offline Data & Pipeline:** Built with SwiftData `@Model` local persistence and precompiled SQLite matrices (`timetable.db` & `availability.db`) generated via an offline Python PDF-parsing pipeline (`AttendanceDatasetBuilder`).
+  - **Zero Telemetry Footprint:** 100% on-device execution with no external accounts, third-party trackers, or server dependencies.
+- **Links:** [GitHub Repository](https://github.com/krishnasharma1493/Presently)
+
+<br>
+
+#### 2. [NAZAR | Covert Wi-Fi Camera Detection Research](https://github.com/krishnasharma1493/NAZAR)
 **Finalist, Nari Kavach 2026** · *IEEE Women in Engineering, University of Delhi*  
 `C++` `ESP32` `Python` `FastAPI` `React` `NumPy` `SciPy` `Signal Processing`
 
@@ -134,7 +155,7 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
 
 <br>
 
-#### 2. [IGNISSENSE | Satellite Thermal Anomaly Classification & GIS](https://github.com/krishnasharma1493/IGNISSENSE)
+#### 3. [IGNISSENSE | Satellite Thermal Anomaly Classification & GIS](https://github.com/krishnasharma1493/IGNISSENSE)
 **Smart India Hackathon 2026** · *Problem Statement 26162*  
 `TypeScript` `Node.js` `Python` `XGBoost` `MongoDB` `React` `MapLibre GL JS` `NASA FIRMS`
 
@@ -150,7 +171,7 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
 
 <br>
 
-#### 3. [Nyaya-Sahayak | AI Legal First-Responder Platform](https://github.com/krishnasharma1493/Nyaya-Sahayak-Core)
+#### 4. [Nyaya-Sahayak | AI Legal First-Responder Platform](https://github.com/krishnasharma1493/Nyaya-Sahayak-Core)
 **Top 15 Finalist, Hack-4-Viksit Bharat** · *GeeksforGeeks × Google Cloud × SISL Infotech*  
 `Python` `Django` `RAG` `Google Gemini` `Vertex AI Search` `React` `Docker` `Google Cloud Run`
 
@@ -164,7 +185,7 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
 
 <br>
 
-#### 4. [Censorra | AI-Powered Content Safety Browser Extension](https://github.com/krishnasharma1493/Censorra)
+#### 5. [Censorra | AI-Powered Content Safety Browser Extension](https://github.com/krishnasharma1493/Censorra)
 **Chrome Web Extension** · *Productivity & Digital Wellness*  
 `TypeScript` `React` `Vite` `Chrome Extensions (Manifest V3)` `Hugging Face Inference API`
 
@@ -178,7 +199,7 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
 
 <br>
 
-#### 5. Authenticity Validator for Academia | Hybrid OCR & QR Verification
+#### 6. Authenticity Validator for Academia | Hybrid OCR & QR Verification
 **Smart India Hackathon 2025** · *Team Encrypted (Problem Statement 25029)*  
 `Node.js` `SQL` `MongoDB` `EasyOCR` `OpenCV` `AWS Lambda` `Amazon S3` `CloudFront` `Docker`
 
