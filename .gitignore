@@ -1,2 +1,12 @@
+# Local-only tooling: the README needs only the rendered images in assets/
+scripts/
+data/
+source/
+
+# OS, editor and Python clutter
 .DS_Store
 __pycache__/
+*.pyc
+.venv/
+.vscode/
+.idea/

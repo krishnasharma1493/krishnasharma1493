@@ -11,10 +11,10 @@
 <table>
   <tr>
     <td valign="top">
-      <img src="./krishna-ascii.svg" width="420" alt="Krishna Sharma — Monochrome Animated ASCII Portrait" />
+      <img src="./assets/hero/krishna-ascii.svg" width="420" alt="Krishna Sharma — Monochrome Animated ASCII Portrait" />
     </td>
     <td valign="top">
-      <img src="./info-card.svg" width="420" alt="Krishna Sharma — Neofetch Profile &amp; System Specs" />
+      <img src="./assets/hero/info-card.svg" width="420" alt="Krishna Sharma — Neofetch Profile &amp; System Specs" />
     </td>
   </tr>
 </table>
@@ -103,7 +103,7 @@
 
 ### <code>krishna@github ~ $ ./code-stats.sh</code>
 
-<img src="./code-stats.svg" width="100%" alt="Code across public repos (GitHub linguist): Python 29%, TypeScript 26%, Swift 19%, JavaScript 14%, CSS/HTML 12%, C++ and other 1%. Largest projects: IGNISSENSE (mostly TypeScript), Nyaya-Sahayak, Presently (mostly Swift), NAZAR (mostly Python)." />
+<img src="./assets/stats/code-stats.svg" width="100%" alt="Code across public repos (GitHub linguist): Python 29%, TypeScript 26%, Swift 19%, JavaScript 14%, CSS/HTML 12%, C++ and other 1%. Largest projects: IGNISSENSE (mostly TypeScript), Nyaya-Sahayak, Presently (mostly Swift), NAZAR (mostly Python)." />
 
 <br>
 
@@ -113,21 +113,21 @@
 
 <div align="center">
 
-<a href="https://github.com/krishnasharma1493/NAZAR"><img src="./figures/nazar.svg" width="100%" alt="Fig. 1: NAZAR, Finalist (Nari Kavach 2026 · IEEE WIE, University of Delhi). Problem: Hidden cameras in rented rooms stream over encrypted Wi-Fi, so you can&#x27;t read their traffic to find them. Solution: Flash a coded light pattern at the room. A camera that sees it shifts its bitrate, and a cheap Wi-Fi chip catches the rhythm in packet timing. Hidden camera p = 0.0055 vs control p = 0.47." /></a>
+<a href="https://github.com/krishnasharma1493/NAZAR"><img src="./assets/projects/nazar.svg" width="100%" alt="Fig. 1: NAZAR, Finalist (Nari Kavach 2026 · IEEE WIE, University of Delhi). Problem: Hidden cameras in rented rooms stream over encrypted Wi-Fi, so you can&#x27;t read their traffic to find them. Solution: Flash a coded light pattern at the room. A camera that sees it shifts its bitrate, and a cheap Wi-Fi chip catches the rhythm in packet timing. Hidden camera p = 0.0055 vs control p = 0.47." /></a>
 <br><br>
-<a href="https://github.com/krishnasharma1493/IGNISSENSE"><img src="./figures/ignissense.svg" width="100%" alt="Fig. 2: IGNISSENSE, 0.55 macro-F1 (Smart India Hackathon 2026). Problem: Satellites flag thousands of heat spots across India but can&#x27;t tell a wildfire from crop burning or a factory flare. Solution: Join each alert with 341k mapped facilities and land use, then let a gradient-boosted model say what&#x27;s really burning. Macro-F1 0.55 vs 0.41 for the rule baseline, trained 2023, tested 2024." /></a>
+<a href="https://github.com/krishnasharma1493/IGNISSENSE"><img src="./assets/projects/ignissense.svg" width="100%" alt="Fig. 2: IGNISSENSE, 0.55 macro-F1 (Smart India Hackathon 2026). Problem: Satellites flag thousands of heat spots across India but can&#x27;t tell a wildfire from crop burning or a factory flare. Solution: Join each alert with 341k mapped facilities and land use, then let a gradient-boosted model say what&#x27;s really burning. Macro-F1 0.55 vs 0.41 for the rule baseline, trained 2023, tested 2024." /></a>
 <br><br>
-<a href="https://github.com/krishnasharma1493/Nyaya-Sahayak-Core"><img src="./figures/nyaya-sahayak.svg" width="100%" alt="Fig. 3: Nyaya-Sahayak, Top 15 (Hack-4-Viksit Bharat · GeeksforGeeks × Google Cloud). Problem: Most people can&#x27;t afford a lawyer just to learn which law applies to their problem. Solution: Describe it by voice, photo or text and get the exact sections of Indian law plus a cited first-draft petition." /></a>
+<a href="https://github.com/krishnasharma1493/Nyaya-Sahayak-Core"><img src="./assets/projects/nyaya-sahayak.svg" width="100%" alt="Fig. 3: Nyaya-Sahayak, Top 15 (Hack-4-Viksit Bharat · GeeksforGeeks × Google Cloud). Problem: Most people can&#x27;t afford a lawyer just to learn which law applies to their problem. Solution: Describe it by voice, photo or text and get the exact sections of Indian law plus a cited first-draft petition." /></a>
 <br><br>
-<a href="https://github.com/krishnasharma1493/multi-ocular-disease-detection"><img src="./figures/multi-ocular.svg" width="100%" alt="Fig. 4: Multi-Ocular, 4 diseases, 1 photo (Retinal screening research prototype · not a medical device). Problem: One eye photo can show several diseases, but most screening models look for only one. Solution: One model checks a retinal photo for myopia, cataract, glaucoma and diabetic retinopathy at once." /></a>
+<a href="https://github.com/krishnasharma1493/multi-ocular-disease-detection"><img src="./assets/projects/multi-ocular.svg" width="100%" alt="Fig. 4: Multi-Ocular, 4 diseases, 1 photo (Retinal screening research prototype · not a medical device). Problem: One eye photo can show several diseases, but most screening models look for only one. Solution: One model checks a retinal photo for myopia, cataract, glaucoma and diabetic retinopathy at once." /></a>
 <br><br>
-<a href="https://github.com/krishnasharma1493/Presently"><img src="./figures/presently.svg" width="100%" alt="Fig. 5: Presently, offline iOS app (Native iPhone app with Live Activities and widgets). Problem: Students slip below 75% attendance because nothing tracks how many classes they can actually skip. Solution: An offline iPhone app that does the math, with Live Activities and widgets. No account, no server. Example: 45 of 50 classes attended leaves 10 safe skips before 75%." /></a>
+<a href="https://github.com/krishnasharma1493/Presently"><img src="./assets/projects/presently.svg" width="100%" alt="Fig. 5: Presently, offline iOS app (Native iPhone app with Live Activities and widgets). Problem: Students slip below 75% attendance because nothing tracks how many classes they can actually skip. Solution: An offline iPhone app that does the math, with Live Activities and widgets. No account, no server. Example: 45 of 50 classes attended leaves 10 safe skips before 75%." /></a>
 <br><br>
-<a href="https://github.com/krishnasharma1493/Censorra"><img src="./figures/censorra.svg" width="100%" alt="Fig. 6: Censorra, real-time (Browser extension for safer shared screens). Problem: Unsafe content pops up on classroom and shared screens before anyone can react. Solution: A browser extension that classifies images and text with AI as pages load and closes unsafe windows." /></a>
+<a href="https://github.com/krishnasharma1493/Censorra"><img src="./assets/projects/censorra.svg" width="100%" alt="Fig. 6: Censorra, real-time (Browser extension for safer shared screens). Problem: Unsafe content pops up on classroom and shared screens before anyone can react. Solution: A browser extension that classifies images and text with AI as pages load and closes unsafe windows." /></a>
 <br><br>
-<img src="./figures/authenticity-validator.svg" width="100%" alt="Fig. 7: Authenticity Validator, SIH 2025 (Smart India Hackathon 2025 · Team Encrypted). Problem: Forged degrees are easy to print and slow to check. Solution: OCR reads paper certificates, signed QR codes verify digital ones, both matched against university records." />
+<img src="./assets/projects/authenticity-validator.svg" width="100%" alt="Fig. 7: Authenticity Validator, SIH 2025 (Smart India Hackathon 2025 · Team Encrypted). Problem: Forged degrees are easy to print and slow to check. Solution: OCR reads paper certificates, signed QR codes verify digital ones, both matched against university records." />
 <br><br>
-<img src="./figures/early-disease-detection.svg" width="100%" alt="Fig. 8: Early Disease Detection, CODESLAYER2k25 (Hackathon build · Team Decypher). Problem: Early symptoms get missed until a disease turns serious, in people and animals alike. Solution: A symptom checker that predicts likely diseases and explains each prediction." />
+<img src="./assets/projects/early-disease-detection.svg" width="100%" alt="Fig. 8: Early Disease Detection, CODESLAYER2k25 (Hackathon build · Team Decypher). Problem: Early symptoms get missed until a disease turns serious, in people and animals alike. Solution: A symptom checker that predicts likely diseases and explains each prediction." />
 
 <sub>Demos: [IGNISSENSE](https://drive.google.com/file/d/1j3GCaUA8aCcoRv1Ed7NfYEF0C_RTlZQd/view?usp=sharing) · [Nyaya-Sahayak](https://drive.google.com/file/d/1Jz7PsEeXDtInVWAkaQ_y4g_ZV-EZ7cLe/view?usp=sharing)</sub>
 
