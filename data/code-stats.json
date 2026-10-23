@@ -1,0 +1,58 @@
+{
+  "user": "krishnasharma1493",
+  "fetched": "2026-10-23",
+  "projects": [
+    {
+      "repo": "Censorra",
+      "languages": {
+        "JavaScript": 17811,
+        "HTML": 8139,
+        "CSS": 1290
+      }
+    },
+    {
+      "repo": "IGNISSENSE",
+      "languages": {
+        "TypeScript": 496489,
+        "Python": 86739,
+        "CSS": 22563,
+        "JavaScript": 4280,
+        "HTML": 1108
+      }
+    },
+    {
+      "repo": "multi-ocular-disease-detection",
+      "languages": {
+        "Python": 51422
+      }
+    },
+    {
+      "repo": "NAZAR",
+      "languages": {
+        "Python": 244640,
+        "JavaScript": 66148,
+        "C++": 11367,
+        "CSS": 8914,
+        "HTML": 290
+      }
+    },
+    {
+      "repo": "Nyaya-Sahayak-Core",
+      "languages": {
+        "JavaScript": 176293,
+        "CSS": 122147,
+        "Python": 116554,
+        "HTML": 69779,
+        "Shell": 13400,
+        "Dockerfile": 893
+      }
+    },
+    {
+      "repo": "Presently",
+      "languages": {
+        "Swift": 366238,
+        "Python": 56925
+      }
+    }
+  ]
+}

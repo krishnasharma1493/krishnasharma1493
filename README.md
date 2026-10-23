@@ -41,14 +41,6 @@
 
 ### <code>krishna@github ~ $ cat tech-stack.sys</code>
 
-```ini
-[RUNTIME_ENVIRONMENT]
-OS          = Linux / Darwin (x86_64 / arm64)
-SHELL       = zsh / bash
-HARDWARE    = ESP32 Microcontrollers, Edge Radios, GPU Inference
-FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
-```
-
 #### 💻 Programming Languages & Core Systems
 <p align="left">
   <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
@@ -109,106 +101,37 @@ FOCUS       = Geospatial GIS, Applied RAG, Computer Vision, Signal Analysis
 
 ---
 
+### <code>krishna@github ~ $ ./code-stats.sh</code>
+
+<img src="./code-stats.svg" width="100%" alt="Code across public repos (GitHub linguist): Python 29%, TypeScript 26%, Swift 19%, JavaScript 14%, CSS/HTML 12%, C++ and other 1%. Largest projects: IGNISSENSE (mostly TypeScript), Nyaya-Sahayak, Presently (mostly Swift), NAZAR (mostly Python)." />
+
+<br>
+
+---
+
 ### <code>krishna@github ~ $ ./featured-projects.sh --verbose</code>
 
-> Deep-dive architectural implementations spanning native mobile systems, IoT hardware signal analysis, satellite GIS telemetry, multimodal legal AI, and browser security.
+<div align="center">
 
-```
-📁 /projects/
-├── 📱 Presently            # Offline-First iOS Attendance Manager & Bunk Calculator (SwiftData + Live Activities)
-├── 🔬 NAZAR               # Wi-Fi Camera Detection via Stroboscopic Light & RF Sniffing
-├── 🛰️ IGNISSENSE          # Satellite Thermal Anomaly Classifier (NASA FIRMS + OSM)
-├── ⚖️ Nyaya-Sahayak       # Legal First-Responder Platform Grounded in Indian Statutes
-├── 🛡️ Censorra            # AI-Powered Content Safety Chrome Extension
-└── 📜 Authenticity-Val    # Hybrid OCR & QR Academic Credential Verification Platform
-```
+<a href="https://github.com/krishnasharma1493/NAZAR"><img src="./figures/nazar.svg" width="100%" alt="Fig. 1: NAZAR, Finalist (Nari Kavach 2026 · IEEE WIE, University of Delhi). Problem: Hidden cameras in rented rooms stream over encrypted Wi-Fi, so you can&#x27;t read their traffic to find them. Solution: Flash a coded light pattern at the room. A camera that sees it shifts its bitrate, and a cheap Wi-Fi chip catches the rhythm in packet timing. Hidden camera p = 0.0055 vs control p = 0.47." /></a>
+<br><br>
+<a href="https://github.com/krishnasharma1493/IGNISSENSE"><img src="./figures/ignissense.svg" width="100%" alt="Fig. 2: IGNISSENSE, 0.55 macro-F1 (Smart India Hackathon 2026). Problem: Satellites flag thousands of heat spots across India but can&#x27;t tell a wildfire from crop burning or a factory flare. Solution: Join each alert with 341k mapped facilities and land use, then let a gradient-boosted model say what&#x27;s really burning. Macro-F1 0.55 vs 0.41 for the rule baseline, trained 2023, tested 2024." /></a>
+<br><br>
+<a href="https://github.com/krishnasharma1493/Nyaya-Sahayak-Core"><img src="./figures/nyaya-sahayak.svg" width="100%" alt="Fig. 3: Nyaya-Sahayak, Top 15 (Hack-4-Viksit Bharat · GeeksforGeeks × Google Cloud). Problem: Most people can&#x27;t afford a lawyer just to learn which law applies to their problem. Solution: Describe it by voice, photo or text and get the exact sections of Indian law plus a cited first-draft petition." /></a>
+<br><br>
+<a href="https://github.com/krishnasharma1493/multi-ocular-disease-detection"><img src="./figures/multi-ocular.svg" width="100%" alt="Fig. 4: Multi-Ocular, 4 diseases, 1 photo (Retinal screening research prototype · not a medical device). Problem: One eye photo can show several diseases, but most screening models look for only one. Solution: One model checks a retinal photo for myopia, cataract, glaucoma and diabetic retinopathy at once." /></a>
+<br><br>
+<a href="https://github.com/krishnasharma1493/Presently"><img src="./figures/presently.svg" width="100%" alt="Fig. 5: Presently, offline iOS app (Native iPhone app with Live Activities and widgets). Problem: Students slip below 75% attendance because nothing tracks how many classes they can actually skip. Solution: An offline iPhone app that does the math, with Live Activities and widgets. No account, no server. Example: 45 of 50 classes attended leaves 10 safe skips before 75%." /></a>
+<br><br>
+<a href="https://github.com/krishnasharma1493/Censorra"><img src="./figures/censorra.svg" width="100%" alt="Fig. 6: Censorra, real-time (Browser extension for safer shared screens). Problem: Unsafe content pops up on classroom and shared screens before anyone can react. Solution: A browser extension that classifies images and text with AI as pages load and closes unsafe windows." /></a>
+<br><br>
+<img src="./figures/authenticity-validator.svg" width="100%" alt="Fig. 7: Authenticity Validator, SIH 2025 (Smart India Hackathon 2025 · Team Encrypted). Problem: Forged degrees are easy to print and slow to check. Solution: OCR reads paper certificates, signed QR codes verify digital ones, both matched against university records." />
+<br><br>
+<img src="./figures/early-disease-detection.svg" width="100%" alt="Fig. 8: Early Disease Detection, CODESLAYER2k25 (Hackathon build · Team Decypher). Problem: Early symptoms get missed until a disease turns serious, in people and animals alike. Solution: A symptom checker that predicts likely diseases and explains each prediction." />
 
-<br>
+<sub>Demos: [IGNISSENSE](https://drive.google.com/file/d/1j3GCaUA8aCcoRv1Ed7NfYEF0C_RTlZQd/view?usp=sharing) · [Nyaya-Sahayak](https://drive.google.com/file/d/1Jz7PsEeXDtInVWAkaQ_y4g_ZV-EZ7cLe/view?usp=sharing)</sub>
 
-#### 1. [Presently | Offline-First iOS Attendance & Academic Analytics Engine](https://github.com/krishnasharma1493/Presently)
-**Native iOS Application** · *Personal Productivity & Deterministic Simulation Engine*  
-`Swift 5.9+` `SwiftUI` `SwiftData` `ActivityKit (Live Activities)` `WidgetKit` `SQLite` `XcodeGen` `Python`
-
-- **The Problem:** University students navigate strict institutional attendance mandates (e.g. 75% minimums), unpredictable schedule cancellations, and difficult campus room discovery. Typical attendance apps require cloud logins, leak schedule telemetry, lack offline integrity, and offer no Dynamic Island or widget integration.
-- **The Solution:** A zero-telemetry, offline-first native iOS application built with SwiftUI and SwiftData that simulates attendance projections, surfaces real-time Dynamic Island and Lock Screen countdowns via ActivityKit, and includes precompiled offline campus room vacancy matrices.
-- **Architecture & Technical Highlights:**
-  - **Deterministic Calculation Engine:** Implements exact threshold algorithms to calculate *Safe Bunks* ($B = \lfloor \frac{P - T \cdot A}{T} \rfloor$) and *Required Recoveries* ($R = \lceil \frac{T \cdot A - P}{1 - T} \rceil$) to guarantee compliance with institutional minimums, supported by interactive "What-If" slider simulations.
-  - **Live Activities & Dynamic Island (`ActivityKit`):** Real-time countdowns for active lectures, upcoming room changes, and one-tap attendance marking directly from the Lock Screen.
-  - **Home & Lock Screen Widgets (`WidgetKit`):** Multi-size widgets (Small, Medium, Large) presenting daily timetables and subject-by-subject attendance health at a glance.
-  - **Offline Data & Pipeline:** Built with SwiftData `@Model` local persistence and precompiled SQLite matrices (`timetable.db` & `availability.db`) generated via an offline Python PDF-parsing pipeline (`AttendanceDatasetBuilder`).
-  - **Zero Telemetry Footprint:** 100% on-device execution with no external accounts, third-party trackers, or server dependencies.
-- **Links:** [GitHub Repository](https://github.com/krishnasharma1493/Presently)
-
-<br>
-
-#### 2. [NAZAR | Covert Wi-Fi Camera Detection Research](https://github.com/krishnasharma1493/NAZAR)
-**Finalist, Nari Kavach 2026** · *IEEE Women in Engineering, University of Delhi*  
-`C++` `ESP32` `Python` `FastAPI` `React` `NumPy` `SciPy` `Signal Processing`
-
-- **The Problem:** Concealed surveillance cameras in private spaces transmit encrypted Wi-Fi packets, making traditional packet payload inspection impossible.
-- **The Solution:** Exploits optical-to-RF cross-talk. When an active Wi-Fi camera observes a phone flashing a precisely coded, stroboscopic light pattern, the camera's sensor bitrate fluctuations induce measurable packet timing bursts in 802.11 traffic.
-- **Architecture & Math:**
-  - An ESP32 microcontroller in **promiscuous mode** sniffs raw 802.11 metadata (frame lengths, inter-arrival times, sequence numbers).
-  - A Python/FastAPI pipeline applies signal processing and non-parametric **permutation tests** to detect synchronization between the optical stimulus and RF packet rate shifts.
-  - **Empirical Results:** During validation, the hidden camera scan returned **$p = 0.0055$** (highly statistically significant correlation), while a laptop streaming background video as a negative control yielded **$p = 0.4748$** (no correlation).
-- **Links:** [GitHub Repository](https://github.com/krishnasharma1493/NAZAR)
-
-<br>
-
-#### 3. [IGNISSENSE | Satellite Thermal Anomaly Classification & GIS](https://github.com/krishnasharma1493/IGNISSENSE)
-**Smart India Hackathon 2026** · *Problem Statement 26162*  
-`TypeScript` `Node.js` `Python` `XGBoost` `MongoDB` `React` `MapLibre GL JS` `NASA FIRMS`
-
-- **The Problem:** Raw satellite thermal alerts cannot differentiate between agricultural crop burning, industrial flares, wildfires, or coal mining hot spots, leading to false emergency alarms.
-- **The Solution:** An end-to-end geospatial intelligence pipeline ingesting **NASA FIRMS** satellite heat detections across India, executing real-time spatial joins with infrastructure records, and classifying thermal signatures with gradient boosted decision trees.
-- **Architecture & Scale:**
-  - Ingested and processed **12,900+ satellite thermal detections**.
-  - Executed spatial proximity joins against **341,000+ OpenStreetMap (OSM) industrial facilities** to engineer distance, land-use, and density features.
-  - Deployed an **XGBoost classifier** via a Python inference microservice communicating with a TypeScript backend.
-  - Evaluated on **spatially blocked splits** (2023 training vs. 2024 testing) to prevent spatial autocorrelation leakage, attaining **0.55 macro-F1** (substantially beating the 0.41 heuristic baseline).
-  - Rendered high-density geospatial heatmaps with custom GPU-accelerated **MapLibre GL JS** layers.
-- **Links:** [GitHub Repository](https://github.com/krishnasharma1493/IGNISSENSE) · [Watch Demo Video](https://drive.google.com/file/d/1j3GCaUA8aCcoRv1Ed7NfYEF0C_RTlZQd/view?usp=sharing)
-
-<br>
-
-#### 4. [Nyaya-Sahayak | AI Legal First-Responder Platform](https://github.com/krishnasharma1493/Nyaya-Sahayak-Core)
-**Top 15 Finalist, Hack-4-Viksit Bharat** · *GeeksforGeeks × Google Cloud × SISL Infotech*  
-`Python` `Django` `RAG` `Google Gemini` `Vertex AI Search` `React` `Docker` `Google Cloud Run`
-
-- **The Problem:** Citizens facing legal grievances often cannot afford preliminary legal consultation and struggle to navigate complex Indian statutes without legal representation.
-- **The Solution:** A multimodal legal assistant that accepts grievances via voice, image/PDF upload, or text, grounds the facts strictly within verified Indian statutes (BNS/IPC, CrPC, CPC), and generates first-draft legal petitions and actionable procedural advice.
-- **Architecture & Features:**
-  - Hybrid OCR + document parser feeding a high-precision **Retrieval-Augmented Generation (RAG)** pipeline powered by **Google Vertex AI Search** and **Gemini**.
-  - Implements strict statutory citations to ensure every generated grievance response cites exact sections and legal precedents.
-  - Built with a streaming **Django REST API**, containerized with **Docker**, and deployed on serverless **Google Cloud Run**.
-- **Links:** [GitHub Repository](https://github.com/krishnasharma1493/Nyaya-Sahayak-Core) · [Watch Demo Video](https://drive.google.com/file/d/1Jz7PsEeXDtInVWAkaQ_y4g_ZV-EZ7cLe/view?usp=sharing)
-
-<br>
-
-#### 5. [Censorra | AI-Powered Content Safety Browser Extension](https://github.com/krishnasharma1493/Censorra)
-**Chrome Web Extension** · *Productivity & Digital Wellness*  
-`TypeScript` `React` `Vite` `Chrome Extensions (Manifest V3)` `Hugging Face Inference API`
-
-- **The Problem:** Accidental exposure to NSFW content or malicious popups in shared, educational, or professional environments.
-- **The Solution:** A privacy-first browser companion that actively monitors web content in the background, evaluates image and text content using serverless transformer inference, and immediately isolates or terminates unauthorized windows.
-- **Architecture:**
-  - Written in modern **TypeScript & React** with Vite build tooling.
-  - Leverages Manifest V3 background service workers with asynchronous event dispatching.
-  - Queries serverless **Hugging Face Inference models** for lightweight, real-time classification before dangerous payloads render.
-- **Links:** [GitHub Repository](https://github.com/krishnasharma1493/Censorra)
-
-<br>
-
-#### 6. Authenticity Validator for Academia | Hybrid OCR & QR Verification
-**Smart India Hackathon 2025** · *Team Encrypted (Problem Statement 25029)*  
-`Node.js` `SQL` `MongoDB` `EasyOCR` `OpenCV` `AWS Lambda` `Amazon S3` `CloudFront` `Docker`
-
-- **The Problem:** Widespread circulation of forged academic degrees, counterfeit physical transcripts, and unverifiable diplomas.
-- **The Solution:** A multi-layered verification engine verifying physical documents via optical character recognition and digital credentials via tamper-evident cryptographic QR codes against university SQL databases.
-- **Architecture:**
-  - Custom computer vision pre-processing pipeline using **OpenCV** (adaptive thresholding, deskewing, noise reduction) followed by **EasyOCR** text extraction.
-  - Scalable serverless microservice architecture deployed on **AWS Lambda**, with assets stored on **Amazon S3** behind **CloudFront CDN** caching.
-  - Instant hash-matching against institutional relational databases to verify degree authenticity in under 2 seconds.
+</div>
 
 <br>
 
@@ -270,12 +193,5 @@ leadership_and_volunteering:
 &nbsp;&nbsp;
 [![Email](https://img.shields.io/badge/Email-contactkrishna0104@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contactkrishna0104@gmail.com)
 
-<br><br>
-
-```
-+-------------------------------------------------------------------------+
-| [EOF] Terminal Session Closed. Thanks for visiting my profile!         |
-+-------------------------------------------------------------------------+
-```
 
 </div>

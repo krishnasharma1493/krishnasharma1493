@@ -2,12 +2,13 @@
 """
 Generates the Neofetch Info Card SVG (info-card.svg).
 Features:
-- Academic Base & Core Architecture Summary
-- Dynamic Technology Domain Allocation Donut Chart (Solid curated premium colors, NO gradients)
-- Animated System Monitor (btop/htop style) Resource Proficiency Meters with enlarged typography
-- Hackathon Honors & Awards Log
-- Iconic Neofetch 8-color swatches & blinking prompt cursor
-Pairs side-by-side with krishna-ascii.svg inside an 840x880 canvas.
+- School & "works on" lines
+- Technology domain donut with animated btop-style meters (the meters double as its legend)
+- Hackathon honors log
+- Blinking prompt cursor in the status bar
+Pairs side-by-side with krishna-ascii.svg inside an 840x880 canvas. GitHub shows the card at
+roughly 48% of its size, so every text is >= 22px here (about 11px on screen); the script
+stops if a line would run past the card edge.
 """
 
 import html
@@ -84,189 +85,149 @@ svg_parts.append(f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-
 svg_parts.append(f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>')
 for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
     svg_parts.append(f'<circle cx="{20 + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
-svg_parts.append(f'<text x="{CANVAS_W/2}" y="{TITLEBAR_H/2 + 4.5}" fill="{TITLE_TEXT}" font-size="12.5" text-anchor="middle">krishna@github: ~$ neofetch --metrics</text>')
+svg_parts.append(f'<text x="{CANVAS_W/2}" y="{TITLEBAR_H/2 + 4.5}" fill="{TITLE_TEXT}" font-size="16" text-anchor="middle">krishna@github: ~$ neofetch --metrics</text>')
 
-y_cursor = 64
+MONO_ADV = 0.6  # monospace glyph advance, in em
+
+
+def fits(text, x, size, what):
+    if x + len(text) * size * MONO_ADV > CANVAS_W - PAD:
+        sys.exit(f"info card: {what} '{text}' runs past the card edge; shorten it")
+
+
+y_cursor = 84
 
 # Header: Host title
+host = "Krishna Sharma"
+fits(host, PAD, 36, "header")
 svg_parts.append(f"""
 <g class="fade-item" style="animation-delay: 0.08s;">
-  <text x="{PAD}" y="{y_cursor}" font-size="21" font-weight="700" fill="#58a6ff">krishna<tspan fill="#8b949e">@</tspan><tspan fill="#7ee787">du-fot-terminal</tspan></text>
-  <line x1="{PAD}" y1="{y_cursor + 11}" x2="{CANVAS_W - PAD}" y2="{y_cursor + 11}" stroke="{FRAME}" stroke-dasharray="3 3"/>
+  <text x="{PAD}" y="{y_cursor}" font-size="36" font-weight="700" fill="#f0f6fc">{host}</text>
+  <line x1="{PAD}" y1="{y_cursor + 18}" x2="{CANVAS_W - PAD}" y2="{y_cursor + 18}" stroke="{FRAME}" stroke-dasharray="3 3"/>
 </g>
 """)
 
-y_cursor += 36
-
-# Highlight boxes (larger height and larger typography)
-box_h = 74
-svg_parts.append(f"""
-<g class="fade-item" style="animation-delay: 0.18s;">
-  <rect x="{PAD}" y="{y_cursor}" width="370" height="{box_h}" rx="8" fill="#161b22" stroke="{FRAME}"/>
-  <text x="{PAD + 16}" y="{y_cursor + 25}" font-size="11.5" fill="#8b949e" font-weight="700" letter-spacing="0.6">ACADEMIC BASE</text>
-  <text x="{PAD + 16}" y="{y_cursor + 46}" font-size="14.5" fill="#58a6ff" font-weight="700">University of Delhi · FoT</text>
-  <text x="{PAD + 16}" y="{y_cursor + 63}" font-size="12.5" fill="#c9d1d9">B.Tech CSE (AI/ML) · Class of 2029</text>
-
-  <rect x="{PAD + 394}" y="{y_cursor}" width="382" height="{box_h}" rx="8" fill="#161b22" stroke="{FRAME}"/>
-  <text x="{PAD + 410}" y="{y_cursor + 25}" font-size="11.5" fill="#8b949e" font-weight="700" letter-spacing="0.6">CORE ARCHITECTURE</text>
-  <text x="{PAD + 410}" y="{y_cursor + 46}" font-size="14.5" fill="#3fb950" font-weight="700">Full-Stack AI &amp; GIS Systems</text>
-  <text x="{PAD + 410}" y="{y_cursor + 63}" font-size="12.5" fill="#c9d1d9">Hardware Signal Analysis &amp; RAG</text>
-</g>
-""")
-
-y_cursor += box_h + 24
-
-# Section Title for Visual Tech Distribution
-svg_parts.append(f"""
-<g class="fade-item" style="animation-delay: 0.28s;">
-  <text x="{PAD}" y="{y_cursor}" font-size="13" font-weight="700" fill="#58a6ff" letter-spacing="0.8">SYSTEM WORKLOAD &amp; TECHNOLOGY PROFICIENCY MATRIX</text>
-  <line x1="{PAD}" y1="{y_cursor + 9}" x2="{CANVAS_W - PAD}" y2="{y_cursor + 9}" stroke="{FRAME}"/>
-</g>
-""")
-
-y_cursor += 24
-
-# Donut Chart Parameters
-cx = PAD + 120
-cy = y_cursor + 124
-r = 92
-stroke_w = 20
-circumference = 2 * math.pi * r
-
-slices = [
-    ("AI / ML & Vision", 35, COLOR_AI),
-    ("Backend Systems", 25, COLOR_BACKEND),
-    ("Cloud & Infra", 18, COLOR_CLOUD),
-    ("Hardware & IoT", 12, COLOR_HARDWARE),
-    ("Geospatial GIS", 10, COLOR_GIS),
-]
-
-# Render Donut Chart with Solid Colors - NO GRADIENTS
-svg_parts.append('<g class="fade-item" style="animation-delay: 0.38s;">')
-svg_parts.append(f'<circle cx="{cx}" cy="{cy}" r="{r+17}" fill="none" stroke="#21262d" stroke-width="1" stroke-dasharray="3 4"/>')
-svg_parts.append(f'<circle cx="{cx}" cy="{cy}" r="{r-17}" fill="none" stroke="#21262d" stroke-width="1" stroke-dasharray="3 4"/>')
-svg_parts.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#161b22" stroke-width="{stroke_w}"/>')
-
-accum_offset = 0
-for label, pct, col in slices:
-    dash_len = (pct / 100.0) * circumference
-    gap_len = circumference - dash_len
-    angle = (accum_offset / circumference) * 360 - 90
-    svg_parts.append(
-        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{col}" stroke-width="{stroke_w}" '
-        f'stroke-dasharray="{dash_len:.2f} {gap_len:.2f}" stroke-linecap="round" '
-        f'transform="rotate({angle:.2f} {cx} {cy})"/>'
-    )
-    accum_offset += dash_len
-
-# Donut Center Readout
-svg_parts.append(f'<circle cx="{cx}" cy="{cy}" r="{r-24}" fill="#161b22" stroke="{FRAME}" stroke-width="1.5"/>')
-svg_parts.append(f'<text x="{cx}" y="{cy - 14}" text-anchor="middle" font-size="11" fill="#8b949e" font-weight="700" letter-spacing="1.2">STACK</text>')
-svg_parts.append(f'<text x="{cx}" y="{cy + 6}" text-anchor="middle" font-size="16" fill="#f0f6fc" font-weight="800">ACTIVE</text>')
-svg_parts.append(f'<text x="{cx}" y="{cy + 24}" text-anchor="middle" font-size="10.5" fill="#3fb950" font-weight="700">● PRODUCTION</text>')
-
-# Chart Legend below Donut
-legend_y = cy + r + 30
-svg_parts.append(f'<g transform="translate({PAD + 10}, {legend_y})">')
-for i, (label, pct, col) in enumerate(slices):
-    col_x = (i % 2) * 122
-    row_y = (i // 2) * 19
-    svg_parts.append(f'<circle cx="{col_x}" cy="{row_y}" r="5" fill="{col}"/>')
-    svg_parts.append(f'<text x="{col_x + 12}" y="{row_y + 4}" font-size="11.5" font-weight="600" fill="#e6edf3">{pct}% <tspan fill="#8b949e" font-weight="400">{label.split()[0]}</tspan></text>')
-svg_parts.append("</g>")
-svg_parts.append("</g>")
-
-# Right side: System Monitor Resource Bars
-bars_x = 312
-bar_w = CANVAS_W - PAD - bars_x
-
-meters = [
-    ("AI, RAG & Vision", "94%", 0.94, "RAG · Google Gemini · Vertex AI · XGBoost · OpenCV · EasyOCR", COLOR_AI),
-    ("Backend & Distributed", "88%", 0.88, "FastAPI · Python · Django · Node.js · Express · C++ · REST", COLOR_BACKEND),
-    ("Cloud & Containers", "82%", 0.82, "Google Cloud Run · AWS Lambda · S3 · CloudFront · Docker", COLOR_CLOUD),
-    ("Edge Hardware & RF", "76%", 0.76, "ESP32 (802.11 Sniffing) · Signal Processing · NumPy · SciPy", COLOR_HARDWARE),
-    ("Interactive GIS & Web", "86%", 0.86, "MapLibre GL JS · React · Next.js · TypeScript · NASA FIRMS", COLOR_GIS),
-]
-
-bar_cursor_y = y_cursor + 14
-track_h = 10
-
-for idx, (title, pct_str, pct_val, stack_str, col) in enumerate(meters):
-    delay = 0.45 + idx * 0.08
-    meter_w = int(bar_w * pct_val)
+# School & focus as neofetch key/value lines
+y_cursor += 66
+kv_size = 24
+key_col = PAD + 10 * kv_size * MONO_ADV
+for i, (key, val, col) in enumerate([
+    ("school", "University of Delhi · B.Tech CSE AI/ML '29", "#58a6ff"),
+    ("works on", "Full-stack AI · GIS · RF signal analysis", "#3fb950"),
+]):
+    fits(val, key_col, kv_size, key)
     svg_parts.append(f"""
-    <g class="fade-item" style="animation-delay: {delay:.2f}s;">
-      <!-- Title & Percentage -->
-      <text x="{bars_x}" y="{bar_cursor_y}" font-size="13.5" font-weight="700" fill="{col}">{html.escape(title)}</text>
-      <text x="{CANVAS_W - PAD}" y="{bar_cursor_y}" font-size="13" font-weight="700" fill="#f0f6fc" text-anchor="end">{pct_str}</text>
-      
-      <!-- Progress Bar Track & Fill (Solid color, NO GRADIENTS) -->
-      <rect x="{bars_x}" y="{bar_cursor_y + 6}" width="{bar_w}" height="{track_h}" rx="5" fill="#161b22" stroke="#21262d" stroke-width="1"/>
-      <rect class="bar-anim" x="{bars_x}" y="{bar_cursor_y + 6}" width="{meter_w}" height="{track_h}" rx="5" fill="{col}" style="animation-delay: {delay+0.08:.2f}s;"/>
-      
-      <!-- Subtitle Stack Tags -->
-      <text x="{bars_x}" y="{bar_cursor_y + 29}" font-size="12" fill="#b1bac4">{html.escape(stack_str)}</text>
+    <g class="fade-item" style="animation-delay: {0.18 + i * 0.06:.2f}s;">
+      <text x="{PAD}" y="{y_cursor}" font-size="{kv_size}" font-weight="700" fill="{col}">{key}</text>
+      <text x="{key_col:.0f}" y="{y_cursor}" font-size="{kv_size}" fill="#c9d1d9">{html.escape(val)}</text>
     </g>
     """)
-    bar_cursor_y += 50
+    y_cursor += 44
 
-y_cursor = max(legend_y + 58, bar_cursor_y + 12)
+# Section Title for Visual Tech Distribution
+y_cursor += 18
+svg_parts.append(f"""
+<g class="fade-item" style="animation-delay: 0.3s;">
+  <text x="{PAD}" y="{y_cursor}" font-size="22" font-weight="700" fill="#58a6ff" letter-spacing="0.8">TECHNOLOGY PROFICIENCY MATRIX</text>
+  <line x1="{PAD}" y1="{y_cursor + 12}" x2="{CANVAS_W - PAD}" y2="{y_cursor + 12}" stroke="{FRAME}"/>
+</g>
+""")
 
-# Divider for Achievements
+# Domains: donut on the left, meters on the right (same colors, so the meters are the legend)
+slices = [
+    ("AI, RAG & Vision", 35, 0.94, COLOR_AI),
+    ("Backend & Distributed", 25, 0.88, COLOR_BACKEND),
+    ("Cloud & Containers", 18, 0.82, COLOR_CLOUD),
+    ("Edge Hardware & RF", 12, 0.76, COLOR_HARDWARE),
+    ("Interactive GIS & Web", 10, 0.86, COLOR_GIS),
+]
+meter_top = y_cursor + 58
+meter_gap = 54
+cx = PAD + 112
+cy = meter_top + (len(slices) - 1) * meter_gap / 2 + 2
+r = 98
+stroke_w = 24
+circumference = 2 * math.pi * r
+
+svg_parts.append('<g class="fade-item" style="animation-delay: 0.38s;">')
+svg_parts.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#161b22" stroke-width="{stroke_w}"/>')
+accum_offset = 0
+segment_gap = 5.0
+for label, pct, _, col in slices:
+    full_len = (pct / 100.0) * circumference
+    dash_len = max(full_len - segment_gap, 1.0)
+    gap_len = circumference - dash_len
+    angle = (accum_offset / circumference) * 360 - 90 + (segment_gap / 2.0 / circumference) * 360
+    svg_parts.append(
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{col}" stroke-width="{stroke_w}" '
+        f'stroke-dasharray="{dash_len:.2f} {gap_len:.2f}" transform="rotate({angle:.2f} {cx} {cy})">'
+        f'<title>{html.escape(label)}: {pct}%</title></circle>'
+    )
+    accum_offset += full_len
+svg_parts.append(f'<text x="{cx}" y="{cy - 6}" text-anchor="middle" font-size="22" fill="#8b949e" font-weight="700" letter-spacing="1.2">STACK</text>')
+svg_parts.append(f'<text x="{cx}" y="{cy + 24}" text-anchor="middle" font-size="28" fill="#f0f6fc" font-weight="800">ACTIVE</text>')
+svg_parts.append("</g>")
+
+bars_x = cx + r + 46
+bar_w = CANVAS_W - PAD - bars_x
+for idx, (title, pct, level, col) in enumerate(slices):
+    delay = 0.45 + idx * 0.08
+    y = meter_top + idx * meter_gap - 14
+    fits(title, bars_x, 22, "meter title")
+    svg_parts.append(f"""
+    <g class="fade-item" style="animation-delay: {delay:.2f}s;">
+      <text x="{bars_x:.0f}" y="{y}" font-size="22" font-weight="700" fill="{col}">{html.escape(title)}</text>
+      <text x="{CANVAS_W - PAD}" y="{y}" font-size="22" font-weight="700" fill="#f0f6fc" text-anchor="end">{round(level * 100)}%</text>
+      <rect x="{bars_x:.0f}" y="{y + 9}" width="{bar_w:.0f}" height="14" rx="7" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+      <rect class="bar-anim" x="{bars_x:.0f}" y="{y + 9}" width="{bar_w * level:.0f}" height="14" rx="7" fill="{col}" style="animation-delay: {delay + 0.08:.2f}s;"/>
+    </g>
+    """)
+
+y_cursor = max(cy + r + stroke_w / 2, meter_top + (len(slices) - 1) * meter_gap + 9) + 40
+
+# Hackathon honors
 svg_parts.append(f"""
 <g class="fade-item" style="animation-delay: 0.95s;">
   <line x1="{PAD}" y1="{y_cursor}" x2="{CANVAS_W - PAD}" y2="{y_cursor}" stroke="{FRAME}"/>
-  <text x="{PAD}" y="{y_cursor + 22}" font-size="12.5" font-weight="700" fill="#d29922" letter-spacing="0.6">HACKATHON HONORS &amp; RECOGNITION</text>
+  <text x="{PAD}" y="{y_cursor + 34}" font-size="22" font-weight="700" fill="#d29922" letter-spacing="0.6">HACKATHON HONORS &amp; RECOGNITION</text>
 </g>
 """)
-
-y_cursor += 44
+y_cursor += 76
 
 achievements = [
-    ("Finalist", "Nari Kavach 2026", "NAZAR Wi-Fi Cam Detection (IEEE WIE DU)", "#A3BE8C"),
-    ("Top 15", "Hack-4-Viksit Bharat", "Nyaya-Sahayak Legal RAG (SISL × Google Cloud)", "#81A1C1"),
-    ("SIH 2026", "IGNISSENSE", "Satellite Thermal Anomaly Classifier (PS 26162)", "#B48EAD"),
-    ("SIH 2025", "Team Encrypted", "Academic Doc Authenticity Validator (PS 25029)", "#88C0D0"),
+    ("Finalist", "Nari Kavach 2026", "#A3BE8C"),
+    ("Top 15", "Hack-4-Viksit Bharat", "#81A1C1"),
+    ("SIH 2026", "IGNISSENSE", "#B48EAD"),
+    ("SIH 2025", "Authenticity Validator", "#88C0D0"),
 ]
-
-for idx, (badge, title, desc, col) in enumerate(achievements):
+title_x = PAD + 12 * 24 * MONO_ADV
+for idx, (badge, title, col) in enumerate(achievements):
     delay = 1.05 + idx * 0.08
+    fits(title, title_x, 24, "honor")
     svg_parts.append(f"""
     <g class="fade-item" style="animation-delay: {delay:.2f}s;">
-      <text x="{PAD + 4}" y="{y_cursor}" font-size="13.5" font-weight="700" fill="{col}">[{html.escape(badge)}]</text>
-      <text x="{PAD + 115}" y="{y_cursor}" font-size="14" font-weight="600" fill="#f0f6fc">{html.escape(title)}</text>
-      <text x="{PAD + 310}" y="{y_cursor}" font-size="12.5" fill="#9da7b3">— {html.escape(desc)}</text>
+      <text x="{PAD}" y="{y_cursor}" font-size="24" font-weight="700" fill="{col}">[{html.escape(badge)}]</text>
+      <text x="{title_x:.0f}" y="{y_cursor}" font-size="24" font-weight="600" fill="#f0f6fc">{html.escape(title)}</text>
     </g>
     """)
-    y_cursor += 26
+    y_cursor += 38
 
-y_cursor += 12
+if y_cursor > CANVAS_H - 60:
+    sys.exit(f"info card: content ends at y={y_cursor}, overlapping the status bar")
 
-# Terminal Color Palette Blocks
-colors_dark = ["#484f58", "#ff7b72", "#7ee787", "#d29922", "#58a6ff", "#bc8cff", "#39c5cf", "#b1bac4"]
-colors_light = ["#6e7681", "#ffa198", "#aff5b4", "#e3b341", "#79c0ff", "#d2a8ff", "#56d4dd", "#f0f6fc"]
-
-svg_parts.append('<g class="fade-item" style="animation-delay: 1.35s;">')
-for i, col in enumerate(colors_dark):
-    x = PAD + i * 44
-    svg_parts.append(f'<rect x="{x}" y="{y_cursor}" width="38" height="15" rx="3" fill="{col}"/>')
-y_cursor += 19
-for i, col in enumerate(colors_light):
-    x = PAD + i * 44
-    svg_parts.append(f'<rect x="{x}" y="{y_cursor}" width="38" height="15" rx="3" fill="{col}"/>')
-svg_parts.append("</g>")
-
-status_line_y = TITLEBAR_H + 800 + PAD * 0.35
-status_y = status_line_y + 20
-svg_parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}"/>')
+# Status bar
+status_line_y = CANVAS_H - 48
+status_y = status_line_y + 32
+svg_parts.append(f'<line x1="0" y1="{status_line_y}" x2="{CANVAS_W}" y2="{status_line_y}" stroke="{FRAME}"/>')
 status_prompt_plain = "krishna@github:~$ status OPEN TO WORK & COLLABORATION "
+fits(status_prompt_plain, PAD - 12, 22, "status")
 svg_parts.append(
-    f'<text x="{PAD}" y="{status_y:.1f}" fill="{TITLE_TEXT}" font-size="13.5">'
+    f'<text x="{PAD - 12}" y="{status_y}" fill="{TITLE_TEXT}" font-size="22">'
     f'krishna@github:~$ status <tspan fill="#3fb950" font-weight="600">OPEN TO WORK &amp; COLLABORATION</tspan></text>'
 )
-cursor_x = PAD + len(status_prompt_plain) * 13.5 * 0.60
+cursor_x = PAD - 12 + len(status_prompt_plain) * 22 * MONO_ADV
 svg_parts.append(
-    f'<rect x="{cursor_x:.1f}" y="{status_y-12:.1f}" width="8" height="14" fill="#3fb950">'
+    f'<rect x="{cursor_x:.1f}" y="{status_y - 18:.1f}" width="12" height="22" fill="#3fb950">'
     f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1" dur="1s" repeatCount="indefinite"/></rect>'
 )
 
@@ -278,6 +239,6 @@ with open(OUT, "w") as f:
 
 try:
     ET.fromstring(svg_code)
-    print(f"Generated {OUT} ({len(svg_code)} bytes)")
+    print(f"Generated {OUT} ({len(svg_code)} bytes; content ends at y={y_cursor:.0f})")
 except Exception as e:
     print("XML Error:", e)
